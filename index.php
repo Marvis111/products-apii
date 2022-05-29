@@ -18,8 +18,8 @@
             <header class="row col-12 align-items-center">
                 <div class="col-4 col-lg-6 text-start p-0"><h4>Product List</h4></div>
                 <div class="buttons col-8 col-lg-6 text-end p-0">
-                    <a href="addproduct.html"= class="add-product">Add</a>
-                    <a href="" id="delete-product-btn">Delete All</a>
+                    <a href="add-product.php" class="add-product">Add</a>
+                    <a href="#" onclick="deleteAll()" id="delete-product-btn">Delete All</a>
                 </div>
             </header>
             <div class="body">
@@ -30,8 +30,6 @@
                 </div>
             </div>
         </main>
-        
-        
         
         
         
@@ -86,6 +84,28 @@
                     }
                 })
             }
+            
+            function deleteAll(){
+                var productIDs = [];
+                $('.products-check-ids').each(function(){
+                    productIDs.push($(this).val());
+                });
+                
+                $.ajax({
+                    url:"backend/api/products/delete.php",
+                    method:"POST",
+                    data:{ productIDs},
+                    success:function(data){
+                        var data = JSON.parse(data)
+                        if (data.success) {
+                            fetchAllProducts();
+                        }
+                    }
+                })
+            }
+
+
+
         </script>
         
 

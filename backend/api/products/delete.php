@@ -5,10 +5,20 @@ include '../../models/Products.php';
 
 $products = new Products();
 
-$productId = $_REQUEST['productId'] ?? null ;
+$productIds = $_POST['productIDs'];
 
-if ($productId != null){
-echo json_encode($products->findById($productId)->getResult());
-} else {
-echo json_encode(['success' => false]);
- }
+$tracts = false;
+
+foreach ($productIds as $productId) {
+    if($products->deleteById($productId))
+        $tracts = true;
+    else
+        $tracts = false;
+};
+
+if ($tracts) {
+    echo json_encode(['success' => true]);
+}else{
+    echo json_encode(['success' => false]);
+}
+

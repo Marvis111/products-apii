@@ -76,8 +76,8 @@ public function findById($id){
     return $this->loadResult($query);
 }
 
-public function delete($condition){
-    $sql = "DELETE * FROM $this->table WHERE ".$condition;
+public function deleteById($id){
+    $sql = "DELETE * FROM $this->table WHERE id ='$id' ";
     $query = mysqli_query($this->connection,$sql);
     if ($query) {
         return true;
