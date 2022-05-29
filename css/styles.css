@@ -1,0 +1,318 @@
+@font-face {
+    font-family: Mulish-Light;
+    src: url('../fonts/Mulish-Light.ttf');
+}@font-face {
+    font-family: Mulish-Regular;
+    src: url('../fonts/Mulish-Regular.ttf');
+}:root{
+    --font1: Mulish-Regular;
+    --font2: Mulish-Light;
+    --white: #fff;
+    --linkbg: rgb(10 10 193 / 90%);
+    --link-hover: #09099d;
+    --box-shadow: 0 0 1rem -2px #58545429;
+    --transition: all .22s ease-in;
+    --transition2: all .2s ease-out;
+}* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}h1, h2, h3, h4, h5, h6{
+    font-weight: 600;
+    margin: 0;
+}li, ul{
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+}a{
+    text-decoration: none !important;
+}:is(.btn, button):focus{
+    box-shadow: none;
+    outline: none;
+}body{
+    min-height: 100vh;
+    font-family: var(--font1);
+}main header{
+    min-height: auto;
+    padding: 1.4rem 2rem;    
+}.body{
+    margin-top: 3pc;
+}.buttons a{
+    font-family: var(--font1);
+    font-size: 15px;
+    margin: 0 1.5rem;
+    border-radius: 6px;
+    height: auto;
+    background-color: var(--linkbg);
+    color: var(--white);
+    padding: 0.7rem 3rem;
+    -webkit-transition: .4s ease-out;
+    -moz-transition: .4s ease-out;
+    -ms-transition: .4s ease-out;
+    -o-transition: .4s ease-out;
+    transition: .4s ease-out;
+}.buttons a:hover{
+    background: var(--link-hover);
+    box-shadow: 0 7px 50px -8px var(--link-hover);
+}.holder{
+    justify-content: space-evenly;
+    margin: 0;
+}.content{
+    border-radius: .8rem;
+    margin: 0 10px;
+    width: 21%;
+    position: relative;
+    box-shadow: var(--box-shadow);
+    padding: 1rem 1rem 1.2rem;
+    transition: var(--transition);
+    overflow: hidden;
+}.content:hover{
+    transform: scale(1.08);
+}.content .icons{
+    position: absolute;
+    top: 1.8rem;
+    width: 20%;
+    right: 0;
+    min-height: auto;
+    z-index: 1;
+}.content .icons .icon{
+    background-color: rgb(210 210 211 / 18%);
+    text-align: start;
+    border-radius: 4px 0 0 4px;
+    margin: 5px 0;
+    padding: 0.4rem 0.3rem 0.4rem 1rem;
+    display: grid;
+    font-size: 1.1rem;
+    align-items: center;
+    transition: var(--transition2);
+    transform: translateX(60px);
+}.content:hover .icons .icon:hover{
+    background-color: var(--link-hover);
+    color: var(--white);
+}/* ==== slide In animation ==== */
+.content:hover .icons .icon{
+    animation: slideIn .2s linear forwards;
+}.content .icons .icon.two{
+    animation-delay: .8s;
+}.content:hover .icons .icon.two{
+    animation-delay: .15s;
+}.content:hover .icons .icon.three{
+    animation-delay: .27s;
+}
+@keyframes slideIn{
+    100%{
+        transform: translateX(0);
+    }}/*  ==== End of slideIn animation ==== */
+
+.form-check-input:focus{
+    box-shadow: none;
+}.form-check-input:checked {
+    background-color: var(--linkbg);
+    border-color: var(--linkbg);
+    box-shadow: none;
+    /* box-shadow: 0 0 0 0.25rem var(--l)45; */
+}
+
+.content > .image {
+    position: relative;
+    /* background: #dedede; */
+    min-height: 240px;
+    overflow: hidden;
+}.content > .image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    image-rendering: pixelated;
+}
+.g_s_q_p{
+    padding: 0 .3rem;
+}.g_s_q_p > div{
+    margin: .2rem 0;
+}.g_name, small{
+    font-family: var(--font2);
+}.s_name{
+    font-family: var(--font1);
+    font-weight: 600;
+    font-size: 1.1rem;
+}.qty_size, .price_buy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}.qty_size p{
+    margin: 0;
+    font-weight: 600;
+}
+.price_buy span{
+    font-size: 17px;
+    font-weight: 800;
+}.price_buy span small{
+    font-weight: 400;
+    color: grey;
+    font-size: 14px;
+}.price_buy button{
+    border: transparent;
+    outline: none;
+    border-radius: 5px;
+    color: var(--white);
+    padding: 0.45rem 0.9rem;
+    background-color: var(--linkbg);
+    font-size: 14px;
+}
+
+@media all and (min-width: 1024px){
+    .content {
+        border-radius: 0.8rem;
+/* -->    margin: 1rem; OR
+-->    margin: 1rem 0; 
+EITHER WAY, IT LOOKS NICE, PICK YOUR PREFERENCE*/
+        margin: 1rem 0 3.5rem;
+        width: 22%;
+        padding: 1rem 0.6rem 1.2rem;
+    }    .content:hover{
+        transform: scale(1.05);
+    }    .content .icons .icon {
+        transform: translateX(70px);
+    }    @keyframes slideIn{
+        100%{
+            transform: translateX(4px);
+        }    }    .g_name span{
+        font-size: 14px;
+    }    .s_name {
+        font-size: .9rem;
+    }    .price_buy span {
+        font-size: 15px;
+    }    .price_buy span small {
+        font-size: 12px;
+    }    .qty_size p{
+        font-size: 14px;
+    }
+
+
+    .price_buy button {
+        padding: 0.45rem 0.6rem;
+        font-size: 13px;
+    }}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .content {
+        margin: 1.5rem;
+        padding: 1rem 1rem 1.2rem;
+        width: 40%;
+    }    .content:hover{
+        transform: scale(1.03)
+    }    .content .icons .icon {
+        transform: translateX(80px);
+    }    .content > .image img {
+        max-width: 200px;
+    }    .price_buy span {
+        font-size: 17px;
+    }    .price_buy span small{
+        font-size: 12px;
+    }    .price_buy button {
+        font-size: 14px;
+        padding: 0.6rem 1rem;
+    }    .g_s_q_p > div {
+        margin: 0.8rem 0 0;
+    }    .s_namee{
+        font-size: 1.05rem;
+    }}@media all and (max-width: 768px){
+    header > div h4{
+        font-size: 1.4rem;
+    }    .buttons a {
+        margin: 0 0.7rem;
+        padding: 0.7rem 2rem;
+        font-size: 14px;
+    }}
+
+@media (min-width: 425px) and (max-width: 767px){
+    main header {
+        padding: 1.4rem;
+        margin: 0 auto !important;
+    }    .content {
+        border-radius: 0.8rem;
+        width: 43%;
+        margin: 1.5rem 0;
+    }    .content .icons .icon {
+        font-size: 1rem;
+    }    .content:hover {
+        transform: scale(1.04);
+    }    .content > .image img {
+        width: 180px;
+    }    .g_s_q_p > div {
+        margin: 0.4rem 0;
+    }    .qty_size{
+        font-size: 14px;
+    }    .g_name{
+        font-weight: bolder;
+        font-size: 12px;
+    }    .s_name{
+        font-size: .9rem;
+    }    .price_buy span {
+        font-size: 14px;
+    }    .price_buy span small {
+        font-size: 12px;
+    }    .price_buy button {
+        font-size: 12.5px;
+    }}@media (min-width: 319px) and (max-width: 425px){
+    header > div h4{
+        font-size: 18px;
+    }    main header {
+        padding: 0.3rem 1rem;
+        margin: 1rem auto !important;
+    }   
+    main header > div {
+        padding: 0;
+    }    .buttons a {
+        margin: 0;
+        font-size: 12px;
+        border-radius: 4px;
+        color: var(--white);
+        padding: 0.7rem 0.8rem;
+    }    .holder {
+        justify-content: space-evenly;
+    }    .content .icons .icon {
+        font-size: 1rem;
+        padding: 0.2rem 0.15rem 0.2rem 0.5rem;
+    }    .content{
+        border-radius: 0.5rem;
+        width: 46%;
+        position: relative;
+        margin: 1rem 0;
+        box-shadow: var(--box-shadow);
+        padding: 0.5rem 0.3rem 0.9rem;
+        transition: var(--transition);
+    }    .content:hover{
+        transform: scale(1);
+    }    .form-check {
+        padding-left: 2em;
+        margin-bottom: 0;
+    }    .content > .image {
+        min-height: 160px;
+    }    .content > .image img {
+        width: 120px;
+    }    .g_s_q_p > div {
+        margin: 0 0 .4rem;
+    }    .g_name span{
+        font-size: 13px;
+        font-weight: bolder;
+    }    .s_name span{
+        font-size: .85em;
+    }    .qty_size p{
+        font-weight: 600;
+        font-size: 12px;
+    }    .price_buy span {
+        font-size: 10px;
+    }    .price_buy span small {
+        font-size: 8px;
+    }    .price_buy button {
+        border: none;
+        outline: none;
+        font-size: 10px;
+        white-space: nowrap;
+        padding: 0.5rem 0.35rem;
+    }}@media all and (max-width: 320px){
+    header > div h4 {
+        font-size: 16px;
+    }}
