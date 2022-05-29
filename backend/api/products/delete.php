@@ -10,6 +10,7 @@ $productIds = $_POST['productIDs'];
 $tracts = false;
 
 foreach ($productIds as $productId) {
+    echo $productId;
     if($products->deleteById($productId))
         $tracts = true;
     else
