@@ -11,6 +11,55 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
+        <style>
+            
+        #preloader {
+        display:'flex';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999;
+        overflow: hidden;
+        background: #fff;
+    }
+    
+    #preloader:before {
+        content: "";
+        position: fixed;
+        top: calc(50% - 30px);
+        left: calc(50% - 30px);
+        border: 6px solid #0563bb;
+        border-top-color: #fff;
+        border-bottom-color: #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        -webkit-animation: animate-preloader 1s linear infinite;
+        animation: animate-preloader 1s linear infinite;
+    }
+    
+    @-webkit-keyframes animate-preloader {
+        0% {
+            transform: rotate(0deg);
+        }
+    
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes animate-preloader {
+        0% {
+            transform: rotate(0deg);
+        }
+    
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+        </style>
         <!-- <div class="header">
             <img src="images/logo.svg" alt="" class="img-fluid">
         </div> -->
@@ -24,13 +73,17 @@
             </header>
             <div class="body">
                 <div>
+                <div id='product-success' style='width:80%;margin:5px auto'>
+                    </div>
                 <div id='productLists' class="row col-12 holder">
+                    
 
                 </div>
                 </div>
             </div>
         </main>
         
+        <div id="preloader"></div>
         
         
         <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -39,16 +92,29 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 fetchAllProducts();
+//                  $(window).on('load', function() {
+//     if ($('#preloader').length) {
+//       $('#preloader').delay(100).fadeOut('slow', function() {
+//         $(this).remove();
+//       });
+//     }
+//   });
             })
+            	// Preloader
+ 
 
             function fetchAllProducts(){
                 $.ajax({
                     url:"backend/api/products/all.php",
                     method:"GET",
+                    beforeSend:function(){
+                        $('#preloader').css('display','flex');
+                    },
                     success:function(data){
                         var data = JSON.parse(data);
                         var output = "";
-                        data.forEach(product =>{
+                        if (data.length !=0) {
+                            data.forEach(product =>{
                             output += `
                             <div class="col-6 col-md-4 col-lg-3 content">
                             <div class="icons">
@@ -76,10 +142,17 @@
                             </div>
                         </div>
                             `;
-                            $("#productLists").html(output);
+                            
+                           
 
 
                         })
+                        }else{
+                            output = "No product Available";
+                        }
+                        $("#productLists").html(output);
+                        $('#preloader').css('display','none');
+                       
                       
                     }
                 })
@@ -88,20 +161,45 @@
             function deleteAll(){
                 var productIDs = [];
                 $('.products-check-ids').each(function(){
-                    productIDs.push($(this).val());
+                    if ($(this)[0].checked == true) {
+                        productIDs.push($(this).val());
+                    }
                 });
-                
-                $.ajax({
+                if (productIDs.length !=0) {
+                    $.ajax({
                     url:"backend/api/products/delete.php",
                     method:"POST",
                     data:{ productIDs},
+                    beforeSend:function(){
+                        $('#preloader').css('display','flex');
+                    },
                     success:function(data){
                         var data = JSON.parse(data)
                         if (data.success) {
                             fetchAllProducts();
+                            $('#preloader').css('display','none');
+                            $('#product-success').html(
+              `
+                        <div class="alert alert-success">
+                        <strong>Success!</strong> Product Successfully deleted!</a>.
+                        </div>         
+                                `
+
+                            )
                         }
                     }
                 })
+                }else{
+                    $('#product-success').html(
+              `
+                        <div class="alert alert-info">
+                        <strong>Please select products to delete</strong> </a>.
+                        </div>         
+                                `
+
+                            )
+                }
+              
             }
 
 
