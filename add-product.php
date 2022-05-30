@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="name" class="form-label">Price:</label>
-                            <input type="text" class="form-control" id="price" value="$0.00" required>
+                            <input type="text" class="form-control" id="price" value="0" required>
                         </div>
                         <div class="col-md-10">
                             <label for="name" class="form-label">Special Name:</label>
