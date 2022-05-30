@@ -236,6 +236,12 @@
                         <strong>Success!</strong> Product Successfully added!</a>.
                         </div>         
                                 `);
+                        }else{
+                            $('#new-product-status').html( `
+                        <div class="alert alert-danger">
+                        <strong>Failed!</strong> Error saving this product. Try again!</a>.
+                        </div>         
+                                `);
                         }
                     }
                 });
