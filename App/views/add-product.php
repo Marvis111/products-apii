@@ -6,9 +6,9 @@
         <title>Product Add Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="fonts/css/boxicons.css">
-        <link rel="stylesheet" href="css/addproduct.css">
+        <link rel="stylesheet" href="/products-app/public/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/products-app/public/assets/fonts/css/boxicons.css">
+        <link rel="stylesheet" href="/products-app/public/assets/css/addproduct.css">
     </head>
     <style>
         .changeform{
@@ -83,6 +83,10 @@
                         <div class="col-md-4">
                             <label for="title" class="form-label">Title:</label>
                             <input type="text" class="form-control" id="title" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="sku" class="form-label">SKU:</label>
+                            <input type="text" class="form-control" id="sku" required>
                         </div>
                         <div class="col-md-4">
                             <label for="name" class="form-label">Price:</label>
@@ -185,8 +189,8 @@
 <div id='preloader'></div>
 
     
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/control.js"></script>
+        <script src="/products-app/public/assets/js/bootstrap.min.js"></script>
+        <script src="/products-app/public/assets/js/control.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
@@ -199,6 +203,7 @@
            function submitProduct(){
                var title = $('#title').val(),
                price = $('#price').val(),
+               sku = $("#sku").val(),
                specialName = $('#s_name').val(),
                size = $('#size').val(),
                quantity = $('#quantity').val(),
@@ -214,17 +219,19 @@
                        [$(this)[0].name]:$(this).val()
                    })
                });
+
+               console.log(productTypeDetails);
                if (title !="" && price !="" && specialName !="" && size !=""
                && price !="" && productTypeDetails.length !=0
                ) {
                 $.ajax({
-                    url:"backend/api/products/new.php",
+                    url:"new-product",
                     method:"POST",
                     data:{ 
-                        title,price,specialName,size,quantity,productType,productTypeDetails
+                        title,sku,price,specialName,size,quantity,productType,productTypeDetails
                     },
                     beforeSend:function(){
-                        $('#preloader').css('display','flex');
+                       $('#preloader').css('display','flex');
                     },
                     success:function(data){
                         var data = JSON.parse(data);

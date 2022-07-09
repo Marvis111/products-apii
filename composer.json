@@ -1,0 +1,19 @@
+{
+    "name": "acer/products-app",
+    "authors": [
+        {
+            "name": "Marvis111",
+            "email": "oyegbilegbemiga@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">7.4",
+        "guzzlehttp/guzzle": "7.4.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+    
+}

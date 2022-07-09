@@ -6,11 +6,13 @@
         <title>Product List</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="fonts/css/boxicons.css">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="/products-app/public/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/products-app/public/assets/fonts/css/boxicons.css">
+        <link rel="stylesheet" href="/products-app/public/assets/css/styles.css">
+         
     </head>
     <body>
+          
         <style>
             
         #preloader {
@@ -60,14 +62,14 @@
         }
     }
         </style>
-        <!-- <div class="header">
+       <div class="header">
             <img src="images/logo.svg" alt="" class="img-fluid">
-        </div> -->
+        </div> 
         <main>
             <header class="row col-12 align-items-center">
                 <div class="col-4 col-lg-6 text-start p-0"><h4>Product List</h4></div>
                 <div class="buttons col-8 col-lg-6 text-end p-0">
-                    <a href="add-product.php" class="add-product">Add</a>
+                    <a href="add-product" class="add-product">Add</a>
                     <a href="#" onclick="deleteAll()" id="delete-product-btn">Delete All</a>
                 </div>
             </header>
@@ -86,26 +88,26 @@
         <div id="preloader"></div>
         
         
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/control.js"></script>
+        <script type="text/javascript" src="/products-app/public/assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/products-app/public/assets/js/control.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-                fetchAllProducts();
-//                  $(window).on('load', function() {
-//     if ($('#preloader').length) {
-//       $('#preloader').delay(100).fadeOut('slow', function() {
-//         $(this).remove();
-//       });
-//     }
-//   });
+                fetchAllProducts();                 
+                $(window).on('load', function() {
+        if ($('#preloader').length) {
+           $('#preloader').delay(100).fadeOut('slow', function() {
+             $(this).remove();
+       });
+     }
+   });
             })
             	// Preloader
  
 
             function fetchAllProducts(){
                 $.ajax({
-                    url:"backend/api/products/all.php",
+                    url:"all-products",
                     method:"GET",
                     beforeSend:function(){
                         $('#preloader').css('display','flex');
@@ -126,7 +128,7 @@
                                 <input class="form-check-input products-check-ids" type="checkbox" value="${product.id}"/>
                             </div>
                             <div class="image">
-                                <img src="images/i4.png" alt="" class="img-fluid">
+                                <img src="/products-app/public/assets/images/i4.png" alt="" class="img-fluid">
                             </div>
                             <div class="g_s_q_p">
                                 <div class="g_name"><span>${product.special_name}</span></div>
@@ -167,7 +169,7 @@
                 });
                 if (productIDs.length !=0) {
                     $.ajax({
-                    url:"backend/api/products/delete.php",
+                    url:"delete-product",
                     method:"POST",
                     data:{ productIDs},
                     beforeSend:function(){

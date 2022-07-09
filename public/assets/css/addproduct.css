@@ -1,0 +1,225 @@
+@font-face {
+    font-family: Mulish-Light;
+    src: url('../fonts/Mulish-Light.ttf');
+}@font-face {
+    font-family: Mulish-Regular;
+    src: url('../fonts/Mulish-Regular.ttf');
+}:root{
+    --font1: Mulish-Regular;
+    --font2: Mulish-Light;
+    --white: #fff;
+    --linkbg: rgb(10 10 193 / 90%);
+    --link-hover: #09099d;
+    --box-shadow: 0 0 1rem -2px #58545429;
+    --transition: all .22s ease-in;
+    --transition2: all .4s ease-out;
+}* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}h1, h2, h3, h4, h5, h6{
+    font-weight: 600;
+    margin: 0;
+}li, ul{
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+}a{
+    text-decoration: none !important;
+}:is(.btn, button):focus{
+    box-shadow: none;
+    outline: none;
+}body{
+    min-height: 100vh;
+    font-family: var(--font1);
+    background: #ececec29;
+}header{
+    min-height: auto;
+    padding: 1.4rem 2rem;    
+}.buttons a{
+    font-family: var(--font1);
+    font-size: 15px;
+    margin: 0 1.5rem;
+    border-radius: 6px;
+    height: auto;
+    background-color: var(--linkbg);
+    color: var(--white);
+    padding: 0.7rem 3rem;
+    -webkit-transition: .4s ease-out;
+    -moz-transition: .4s ease-out;
+    -ms-transition: .4s ease-out;
+    -o-transition: .4s ease-out;
+    transition: .4s ease-out;
+}.buttons a:hover{
+    background: var(--link-hover);
+    box-shadow: 0 7px 50px -8px var(--link-hover);
+}
+main.row{
+    margin: 3rem auto;
+    justify-content: space-around;
+    align-items: center;
+}main.row > div {
+    padding: 0;
+}.image-holder{
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+form .row > div{
+    padding: 0;
+    margin: 1rem 0 0;
+}form .row{
+    justify-content: space-around;
+}form * .form-control{
+    padding: 0.7rem 0.7rem;
+    border-radius: 0.4rem;
+    border: 0.3px solid #dee
+}form * .form-control:focus{
+    box-shadow: none;
+    border: 2px solid var(--linkbg);
+}form .form-control#price{
+    text-align: center;
+}form .form-label{
+    margin-bottom: 5px;
+}.qty{
+    position: relative;
+}.qty .form-control{
+    text-align: center;
+    font-size: 1.1rem;
+    padding: .7rem 3rem;
+}.qty i{
+    font-size: 1.2rem;
+    position: absolute;
+    cursor: pointer;
+}.qty i.bx-minus{
+    left: 1rem;
+}.qty i.bx-plus{
+    right: 1rem;
+}
+
+.form-selector{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 2rem auto 1rem;
+}.form-selector .dropdown{
+    position: relative;    
+}.form-selector select {
+    appearance: none;
+    width: 100%;
+    padding: 0.7rem 0.7rem;
+    border-radius: 0.4rem;
+    border: 0.3px solid #dee;
+    font-size: 15px;
+}.form-selector select:focus-visible{
+    outline: none;
+    border: 2px solid var(--linkbg);
+}.form-selector i{
+    height: 100%;
+    width: 2.6rem;
+    background-color: var(--linkbg);
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    cursor: pointer;
+    font-size: 18px;
+    pointer-events: none;
+    border-radius: 0 .4rem .4rem 0;
+}.bx-caret-down:before {
+    content: "\ea29";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white)
+}
+/* ====hidden forms in select button ===== */
+.changeform{
+    /* display: none; */
+    margin: 2rem auto;
+}.changeform h4{
+    font-size: larger;
+}.changeform form > div{
+    margin: 1.3rem 0;
+}
+/*  ==== end of hidden forms ==== */
+
+.submit{
+    margin: 2rem auto 0;
+}.submit button{
+    background-color: var(--link-hover);
+    color: var(--white);
+    border-radius: .4rem;
+    letter-spacing: .3px;
+    font-size: 15px;
+    padding: .7rem 3rem;
+    border: none;
+    outline: none;
+    -webkit-transition: var(--transition2);
+    -moz-transition: var(--transition2);
+    -ms-transition: var(--transition2);
+    -o-transition: var(--transition2);
+    transition: var(--transition2);
+}.submit button:hover{
+    background-color: var(--link-hover);
+    box-shadow: 0 1rem 50px -10px var(--linkbg);
+}@media all and (max-width: 1024px){
+    header{
+        margin: 0 auto !important;
+    }}@media (min-width: 768px) and (max-width: 1023px){
+    header{
+        padding: 10px;
+        margin: 1.3rem 0;
+    }    header > div{
+        padding: 0;
+    }
+    header .buttons{
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+    }    .buttons a {
+        margin: 0;
+    }    form > div{
+        justify-content: space-around;
+    }}@media (min-width: 425px) and (max-width: 767px){
+    header {
+        padding: .8rem 0.3rem;
+    }    .buttons a {
+        font-size: 15px;
+        margin: 0;
+        padding: 0.7rem 1.56rem;
+    }}@media (min-width: 319px) and (max-width: 424px){
+    header {
+        padding: 0.3rem 1rem;
+    }    .row > div h4{
+        font-size: 16px;
+    }    .buttons a {
+        margin: 0;
+        font-size: 12px;
+        border-radius: 4px;
+        color: var(--white);
+        padding: 0.5rem 1.1rem;
+    }    form .form-label{
+        margin-bottom: .2rem;
+        font-weight: 600;
+        font-size: 14px;
+    }    form * .form-control {
+        padding: 0.7rem;
+        border-radius: 0.3rem;
+        font-size: 14px;
+    }    .row > div {
+        padding: 0;
+        margin: 0.6rem 0 0;
+    }    .form-selector select {
+        width: 250%;
+        font-size: 12px;
+    }    .form-selector i{
+        right: -150%;
+        bottom: 0px;
+        font-size: 15px;
+    }    .submit button{
+        font-size: 13px
+    }        
+}
+
