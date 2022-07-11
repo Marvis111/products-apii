@@ -69,8 +69,8 @@
             <header class="row col-12 align-items-center">
                 <div class="col-4 col-lg-6 text-start p-0"><h4>Product List</h4></div>
                 <div class="buttons col-8 col-lg-6 text-end p-0">
-                    <a href="add-product" class="add-product">Add</a>
-                    <a href="#" onclick="deleteAll()" id="delete-product-btn">Delete All</a>
+                    <a href="add-product" class="add-product">ADD</a>
+                    <a href="#" onclick="deleteAll()" id="delete-product-btn">MASS DELETE</a>
                 </div>
             </header>
             <div class="body">
@@ -125,7 +125,7 @@
                                 <div class="three icon"><i class="bx bx-cart-add"></i></div>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input products-check-ids" type="checkbox" value="${product.id}"/>
+                                <input class="form-check-input products-check-ids delete-checkbox" type="checkbox" value="${product.id}"/>
                             </div>
                             <div class="image">
                                 <img src="/products-app/public/assets/images/i4.png" alt="" class="img-fluid">

@@ -4,6 +4,8 @@ namespace App\Model;
 
 use App\Model\Database;
 
+use App\Abstracts\ProductAbstract;
+
 class Product extends Database {
 
     protected $table = 'product';

@@ -81,20 +81,20 @@
                 <form action="" method='POST' id="product_form" enctype="multipart/form-data"  autocomplete="off">
                     <div class="row col-12 m-0">
                         <div class="col-md-4">
-                            <label for="title" class="form-label">Title:</label>
-                            <input type="text" class="form-control" id="title" required>
-                        </div>
-                        <div class="col-md-4">
                             <label for="sku" class="form-label">SKU:</label>
                             <input type="text" class="form-control" id="sku" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="title" class="form-label">Title:</label>
+                            <input type="text" class="form-control" id="title" required>
                         </div>
                         <div class="col-md-4">
                             <label for="name" class="form-label">Price:</label>
                             <input type="text" class="form-control" id="price" value="0" required>
                         </div>
                         <div class="col-md-10">
-                            <label for="name" class="form-label">Special Name:</label>
-                            <input type="text" class="form-control" id="s_name" required>
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" required>
                         </div>
                         <div class="col-md-4">
                             <label for="size" class="form-label">Size:</label>
@@ -142,19 +142,19 @@
                             <form action="">
                                 <div>
                                     <label for="" class="form-label">Height (cm):</label>
-                                    <input type="text" name='dvd_height' class="form-control" required>
+                                    <input type="text" name='dvd_height' id='height' class="form-control" required>
                                 </div>
                                 <div>
                                     <label for="" class="form-label">Width (cm):</label>
-                                    <input type="text" name='dvd_width' class="form-control" required>
+                                    <input type="text" name='dvd_width' id= 'width' class="form-control" required>
                                 </div>
                                 <div>
                                     <label for="" class="form-label">Length (cm):</label>
-                                    <input type="text" name='dvd_length' class="form-control" required>
+                                    <input type="text" name='dvd_length' id='length' class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Description</label>
-                                    <textarea class="form-control" name='dvd_description' id="" rows="3" required></textarea>
+                                    <textarea class="form-control" name='dvd_description' rows="3" required></textarea>
                                 </div>
                             </form>
                         </div>
@@ -166,7 +166,7 @@
                             <form action="">
                                 <div>
                                     <label for="" class="form-label">Weight (kg):</label>
-                                    <input type="text" name='disc_weight' class="form-control" required>
+                                    <input type="text" id='weight' name='disc_weight' class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Description</label>
@@ -204,7 +204,7 @@
                var title = $('#title').val(),
                price = $('#price').val(),
                sku = $("#sku").val(),
-               specialName = $('#s_name').val(),
+               specialName = $('#name').val(),
                size = $('#size').val(),
                quantity = $('#quantity').val(),
                productType = $('#productType').val(),
